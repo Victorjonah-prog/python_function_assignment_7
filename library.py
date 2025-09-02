@@ -23,7 +23,9 @@ def add_book(**books):
     else:
         library.append(books) 
         return f"{books["title"]} added successfully"
-print(add_book(id=1,title="gifted hands",author="ben carson",available=True))          
+print(add_book(id=1,title="gifted hands",author="ben carson",available=True))
+print(add_book(id=2, title="The Alchemist", author="Paulo Coelho", available=True))  
+print(library)        
 
 """Add a new book into the library with flexible details.
         return "Book {book_title} added successfully!"
@@ -33,17 +35,26 @@ def search_books(search_param):
     for book in library:
         if ("title" in book and search_param in book["title"].lower()) or \
            ("author" in book and search_param in book["author"].lower()):
-            return book
+            return book["title"]
         else:
             return f"book doesnt exist"   
-    return book 
-print(search_books("gifted hands"))   
+print(search_books("ben carson"))   
 """Search for books by multiple keywords (title, author).
     return books that match search description.
 """
-'''
+
 def borrow_book(book_id):
-    """Borrow a book if available (msg: You borrowed {book_title}).
+    for book in library:
+        if book["id"] == book_id:
+            if "available" not in book or book["available"]:
+                book["available"] = False
+                return f"Book '{book['title']}' borrowed successfully"
+            else:
+                return f"Book '{book['title']}' is not available"
+    return f"Book with ID {book_id} does not exist"
+print(borrow_book(1))    
+
+    
+"""Borrow a book if available (msg: You borrowed {book_title}).
         else-> msg: Book {book_title} not available
-    """
-'''
+"""

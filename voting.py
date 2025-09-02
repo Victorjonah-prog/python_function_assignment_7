@@ -16,6 +16,8 @@ Future OOP Extension:
 - Election as a manager class.
 """
 
+
+
 candidates = {}
 voters = set()
 
@@ -47,7 +49,7 @@ def cast_vote(voter_id, candidate):
 cast_vote(1, "mp")
 cast_vote(2, "k9ine")
 cast_vote(3, "tosin")
-cast_vote(1, "wallex")
+cast_vote(1, "mark")
 def election_result():
     """Return the winner(s)."""
     # max_votes = #add logic
