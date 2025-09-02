@@ -52,7 +52,7 @@ def borrow_book(book_id):
             else:
                 return f"Book '{book['title']}' is not available"
     return f"Book with ID {book_id} does not exist"
-print(borrow_book(1))    
+print(borrow_book(2))    
 
     
 """Borrow a book if available (msg: You borrowed {book_title}).
